@@ -1,0 +1,17 @@
+.btn {
+  background: var(--purple-1);
+  min-width: 100px;
+  border: 1px solid var(--purple-1);
+  border-radius: 4px;
+  color: white;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 40px;
+  font-weight: bold;
+  transition: background 0.3s linear, border 0.3s linear;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--purple-2);
+  border: 1px solid var(--purple-2);
+}

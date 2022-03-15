@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { BaseSyntheticEvent, useEffect } from "react";
-import { Button, InputGroup, Logo, ShootingStar } from "../components";
-import { Input } from "../components/Input/Input";
+import { BaseSyntheticEvent } from "react";
+import { Button, Input, InputGroup, Logo, ShootingStar } from "../components";
 import { useToken } from "../hooks/useToken";
 
 const AddToken: NextPage = () => {

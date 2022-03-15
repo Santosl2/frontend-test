@@ -2,6 +2,6 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
-  bgColor?: "default" | "grey";
+  bgColor?: "default" | "grey" | "red";
   align?: "End" | "Baseline";
 };

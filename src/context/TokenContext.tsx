@@ -16,6 +16,8 @@ type TokenContextData = {
   addToken: (data: TokenCredentials) => void;
   tokenExists: (token: string) => boolean;
   findTokenByTokenName: (token: string) => TokenCredentials | undefined;
+  deleteToken: (token: string) => void;
+  saveToken: (token: string, data: TokenCredentials) => void;
 };
 
 export const TokenContext = createContext({} as TokenContextData);
@@ -56,6 +58,30 @@ export function TokenProvider({ children }: { children: ReactNode }) {
     [tokens]
   );
 
+  const deleteToken = useCallback(
+    (token: string) => {
+      const newTokens = tokens.filter((t) => t.token !== token);
+      localStorage.setItem("@tokens", JSON.stringify(newTokens));
+    },
+    [tokens]
+  );
+
+  const saveToken = useCallback(
+    (
+      token: string,
+      { token: newTokenName, balance: newBalance }: TokenCredentials
+    ) => {
+      const tokenData = findTokenByTokenName(token);
+      if (!tokenData) return;
+
+      tokenData.token = newTokenName;
+      tokenData.balance = newBalance;
+
+      localStorage.setItem("@tokens", JSON.stringify(tokens));
+    },
+    [tokens]
+  );
+
   return (
     <TokenContext.Provider
       value={{
@@ -63,6 +89,8 @@ export function TokenProvider({ children }: { children: ReactNode }) {
         addToken,
         tokenExists,
         findTokenByTokenName,
+        deleteToken,
+        saveToken,
       }}
     >
       {children}

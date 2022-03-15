@@ -10,9 +10,7 @@ export function Button({
   return (
     <button
       {...props}
-      className={`${style.btn} ${
-        bgColor === "grey" && style["grey"]
-      } alignSelf${align}`}
+      className={`${style.btn} ${style[bgColor]} alignSelf${align}`}
     >
       {children}
     </button>

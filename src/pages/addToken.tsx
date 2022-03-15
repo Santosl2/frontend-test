@@ -59,7 +59,7 @@ const AddToken: NextPage = () => {
 
           <InputGroup>
             <label htmlFor="balance">Balance</label>
-            <Input id="balance" name="balance" required />
+            <Input id="balance" type="number" name="balance" required />
           </InputGroup>
 
           <Button align="End">Save</Button>

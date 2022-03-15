@@ -1,8 +1,11 @@
 import type { NextPage } from "next";
 import { Button, Logo, ShootingStar } from "../components";
 import { FiEdit } from "react-icons/fi";
+import { useToken } from "../hooks/useToken";
 
 const Home: NextPage = () => {
+  const { tokens } = useToken();
+
   return (
     <div className="max70">
       <header>
@@ -16,34 +19,34 @@ const Home: NextPage = () => {
       </header>
       <div className="flex center">
         <table>
-          <tr>
-            <th></th>
-            <th>Tokens</th>
-            <th>Balance</th>
-          </tr>
-          <tr>
-            <td>
-              <FiEdit size={16} />
-            </td>
-            <td>KLV</td>
-            <td>10,250.50</td>
-          </tr>
-
-          <tr>
-            <td>
-              <FiEdit size={16} />
-            </td>
-            <td>DVK</td>
-            <td>50,250.70</td>
-          </tr>
-
-          <tr>
-            <td>
-              <FiEdit size={16} />
-            </td>
-            <td>KFI</td>
-            <td>10</td>
-          </tr>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tokens</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tokens.map((token) => {
+              return (
+                <tr key={token.token}>
+                  <td
+                    onClick={() => {
+                      window.location.href = `/editToken/${token.token}`;
+                    }}
+                  >
+                    <FiEdit size={16} />
+                  </td>
+                  <td>{token.token}</td>
+                  <td>
+                    {new Intl.NumberFormat("pt-BR").format(
+                      Number(token.balance)
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </div>

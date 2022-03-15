@@ -28,9 +28,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <title>Klever Test</title>
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

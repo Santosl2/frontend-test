@@ -28,7 +28,7 @@ const EditToken: NextPage = () => {
 
     const { token: tokenInput, balance } = e.target;
     const tokenValue = tokenInput.value;
-    const balanceValue = balance.value;
+    const balanceValue = balance.value.replace(/\D/g, ""); // remove all letters
 
     if (!tokenValue || !balanceValue) {
       alert("Please, fill all fields");
@@ -84,8 +84,9 @@ const EditToken: NextPage = () => {
             <Input
               id="balance"
               name="balance"
-              type="number"
-              defaultValue={tokenData?.balance}
+              defaultValue={new Intl.NumberFormat("pt-BR").format(
+                Number(tokenData?.balance)
+              )}
               required
             />
           </InputGroup>

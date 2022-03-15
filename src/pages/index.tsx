@@ -4,13 +4,16 @@ import { FiEdit } from "react-icons/fi";
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
-      <Logo />
-      <div className="flex between">
-        <ShootingStar />
-        <Button>Add Token</Button>
-      </div>
-
+    <div className="max70">
+      <header>
+        <Logo />
+        <div className="flex between">
+          <ShootingStar />
+          <Button onClick={() => (window.location.href = "./addToken")}>
+            Add Token
+          </Button>
+        </div>
+      </header>
       <div className="flex center">
         <table>
           <tr>

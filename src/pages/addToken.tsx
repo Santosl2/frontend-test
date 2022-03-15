@@ -34,7 +34,7 @@ const AddToken: NextPage = () => {
   }
 
   return (
-    <div className="max70">
+    <section className="max70">
       <header>
         <Logo />
         <div className="flex between">
@@ -64,7 +64,7 @@ const AddToken: NextPage = () => {
           <Button align="End">Save</Button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

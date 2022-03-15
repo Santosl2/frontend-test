@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const { tokens } = useToken();
 
   return (
-    <div className="max70">
+    <section className="max70">
       <header>
         <Logo />
         <div className="flex between">
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   );
 };
 

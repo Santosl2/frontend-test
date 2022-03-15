@@ -57,7 +57,7 @@ const EditToken: NextPage = () => {
   }
 
   return (
-    <div className="max70">
+    <section className="max70">
       <header>
         <Logo />
         <div className="flex between">
@@ -98,7 +98,7 @@ const EditToken: NextPage = () => {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
